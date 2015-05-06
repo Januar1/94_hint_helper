@@ -41,7 +41,7 @@ public class resultScreen extends Activity {
             sLetter = extras.getString("sLetter");
             letters = extras.getString("letters");
             length = extras.getInt("length");
-            String pattern = sLetter + "[" + letters + "]{" + Integer.toString(length-1) +
+            String pattern = "(^|\n)" + sLetter + "[" + letters + "]{" + Integer.toString(length-1) +
                                 "}\n";
 
             int[] vIskani;
