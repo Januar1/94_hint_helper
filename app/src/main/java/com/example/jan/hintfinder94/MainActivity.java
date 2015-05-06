@@ -81,11 +81,25 @@ public class MainActivity extends ActionBarActivity {
                 //Toast msg = Toast.makeText(getBaseContext(), displayString,
                 //        Toast.LENGTH_LONG);
                 //msg.show();
-                Intent zadetki = new Intent(context, resultScreen.class);
-                zadetki.putExtra("sLetter", sLetter.getText().toString());
-                zadetki.putExtra("letters", letters.getText().toString());
-                zadetki.putExtra("length", lenBar.getProgress());
-                startActivity(zadetki);
+                String s_sLetter = sLetter.getText().toString();
+                String s_letters = letters.getText().toString();
+                int s_lenBar = lenBar.getProgress();
+                if(s_sLetter.length() != 1){
+                    Toast.makeText(getApplicationContext(), "Vnesi samo 1 zacetno crko", Toast.LENGTH_SHORT).show();
+                }
+                else if(s_letters.length() < s_lenBar-1){
+                    Toast.makeText(getApplicationContext(), "Premalo crk", Toast.LENGTH_SHORT).show();
+                }
+                else if(s_lenBar < 1){
+                    Toast.makeText(getApplicationContext(), "Dolzina besede mora biti vecja od 0", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Intent zadetki = new Intent(context, resultScreen.class);
+                    zadetki.putExtra("sLetter", s_sLetter);
+                    zadetki.putExtra("letters", s_letters);
+                    zadetki.putExtra("length", s_lenBar);
+                    startActivity(zadetki);
+                }
             }
         });
 
