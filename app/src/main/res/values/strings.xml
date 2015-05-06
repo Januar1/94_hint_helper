@@ -6,6 +6,7 @@
     <string name="action_help">Help</string>
     <string name="search_hint">Search for items</string>
     <string name="search_menu">Search for items</string>
+    <string name="action_special">Unlock bonus</string>
     <string name="help_text">This application was written by me because I did not feel like
     doing work for School. It is only one day old, so expect strange behaviour.
     In the game "94%" it is possible to "buy" hints that give you the first letter, number of

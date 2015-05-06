@@ -4,6 +4,8 @@
 
     <item android:id="@+id/action_settings" android:title="@string/action_settings"
         android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/action_special" android:title="@string/action_special"
+        android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_help" android:title="@string/action_help"
         android:orderInCategory="100" app:showAsAction="never" />
 

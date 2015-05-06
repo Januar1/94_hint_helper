@@ -1,5 +1,7 @@
 package com.example.jan.hintfinder94;
 
+import android.content.ActivityNotFoundException;
+import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -78,16 +80,13 @@ public class MainActivity extends ActionBarActivity {
                 String s_sLetter = sLetter.getText().toString();
                 String s_letters = letters.getText().toString();
                 int s_lenBar = lenBar.getProgress();
-                if(s_sLetter.length() != 1){
+                if (s_sLetter.length() != 1) {
                     Toast.makeText(getApplicationContext(), "Vnesi samo 1 zacetno crko", Toast.LENGTH_SHORT).show();
-                }
-                else if(s_letters.length() < s_lenBar-1){
+                } else if (s_letters.length() < s_lenBar - 1) {
                     Toast.makeText(getApplicationContext(), "Premalo crk", Toast.LENGTH_SHORT).show();
-                }
-                else if(s_lenBar < 1){
+                } else if (s_lenBar < 1) {
                     Toast.makeText(getApplicationContext(), "Dolzina besede mora biti vecja od 0", Toast.LENGTH_SHORT).show();
-                }
-                else {
+                } else {
                     Intent zadetki = new Intent(context, resultScreen.class);
                     zadetki.putExtra("sLetter", s_sLetter);
                     zadetki.putExtra("letters", s_letters);
@@ -124,6 +123,14 @@ public class MainActivity extends ActionBarActivity {
                 Intent help = new Intent(context, helpScreen.class);
                 startActivity(help);
                 break;
+            case R.id.action_special:
+                try{
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "dQw4w9WgXcQ"));
+                startActivity(intent);} catch(ActivityNotFoundException ex){
+
+                }
+                break;
+                //https://www.youtube.com/watch?v=dQw4w9WgXcQ
             default:
                 break;
         }
