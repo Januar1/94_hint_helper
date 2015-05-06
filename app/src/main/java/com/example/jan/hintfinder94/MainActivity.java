@@ -125,9 +125,10 @@ public class MainActivity extends ActionBarActivity {
                 break;
             case R.id.action_special:
                 try{
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "dQw4w9WgXcQ"));
-                startActivity(intent);} catch(ActivityNotFoundException ex){
-
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("vnd.youtube:" + "dQw4w9WgXcQ"));
+                    startActivity(intent);} catch(ActivityNotFoundException ex){
+                    Toast.makeText(this, "Youtube not found, you are probably on emulator", Toast.LENGTH_SHORT)
+                            .show();
                 }
                 break;
                 //https://www.youtube.com/watch?v=dQw4w9WgXcQ
