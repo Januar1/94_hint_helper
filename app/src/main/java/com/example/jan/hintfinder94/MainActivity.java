@@ -75,12 +75,6 @@ public class MainActivity extends ActionBarActivity {
         display.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-                //String displayString = "You are looking for  r'" + sLetter.getText().toString() +
-                //"'with letters'" + letters.getText().toString() + "'";
-
-                //Toast msg = Toast.makeText(getBaseContext(), displayString,
-                //        Toast.LENGTH_LONG);
-                //msg.show();
                 String s_sLetter = sLetter.getText().toString();
                 String s_letters = letters.getText().toString();
                 int s_lenBar = lenBar.getProgress();
@@ -121,9 +115,17 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        switch(id){
+            case R.id.action_settings:
+                Toast.makeText(this, "Settings are not implemented yet", Toast.LENGTH_SHORT)
+                    .show();
+                break;
+            case R.id.action_help:
+                Intent help = new Intent(context, helpScreen.class);
+                startActivity(help);
+                break;
+            default:
+                break;
         }
 
         return super.onOptionsItemSelected(item);
