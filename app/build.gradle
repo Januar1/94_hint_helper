@@ -7,8 +7,8 @@ android {
         applicationId 'com.jan.hintfinder94'
         minSdkVersion 17
         targetSdkVersion 21
-        versionCode 1
         versionName '1.01'
+        versionCode 2
     }
     buildTypes {
         release {
