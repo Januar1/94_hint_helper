@@ -36,21 +36,42 @@ public class resultScreen extends Activity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.results_activity);
             Bundle extras = getIntent().getExtras();
-            readResource();
-
             sLetter = extras.getString("sLetter");
             letters = extras.getString("letters");
             length = extras.getInt("length");
-            String pattern = "(^|\n)" + sLetter + "[" + letters + "]{" + Integer.toString(length-1) +
-                                "}\n";
+            readResource();
+            searchItems();
 
+
+
+            ListAdapter adapter = new ArrayAdapter<String>(resultScreen.this, android.R.layout.simple_list_item_1, listResults);
+            ListView resultsList = (ListView) findViewById(R.id.listView);
+            resultsList.setAdapter(adapter);
+
+        }
+
+        public void readResource(){
+            try {
+                InputStream fileStream = getResources().openRawResource(
+                        R.raw.dict);
+                int fileLen = fileStream.available();
+                byte[] fileBuffer = new byte[fileLen];
+                fileStream.read(fileBuffer);
+                fileStream.close();
+                dictionary = new String(fileBuffer);
+
+            } catch (IOException e) {
+            }
+        }
+
+        public void searchItems(){
+
+            String pattern = "(^|\n)" + sLetter + "[" + letters + "]{" + Integer.toString(length-1) +
+                    "}\n";
             int[] vIskani;
             int[] vTrenutni;
             vIskani = new int[N];
             vTrenutni = new int[N];
-
-            //Toast.makeText(getApplicationContext(), "Searching for: " + pattern,
-            //        Toast.LENGTH_SHORT).show();
 
             Pattern s_pattern = Pattern.compile(pattern);
             Matcher s_matcher = s_pattern.matcher(dictionary);
@@ -68,7 +89,7 @@ public class resultScreen extends Activity {
             for(i = 0; i < letters.length(); i++){
                 indeks = abeceda.indexOf(letters.charAt(i));
 
-            //
+                //
                 if(indeks > 0) {
                     vIskani[indeks] += 1;
                     /*Toast.makeText(getApplicationContext(), "i: " + Integer.toString(i) +
@@ -110,25 +131,6 @@ public class resultScreen extends Activity {
 
             listResults = new String[ arrayResultsClean.size() ];
             arrayResultsClean.toArray(listResults);
-
-            ListAdapter adapter = new ArrayAdapter<String>(resultScreen.this, android.R.layout.simple_list_item_1, listResults);
-            ListView resultsList = (ListView) findViewById(R.id.listView);
-            resultsList.setAdapter(adapter);
-
         }
 
-        public void readResource(){
-            try {
-                InputStream fileStream = getResources().openRawResource(
-                        R.raw.dict);
-                int fileLen = fileStream.available();
-                byte[] fileBuffer = new byte[fileLen];
-                fileStream.read(fileBuffer);
-                fileStream.close();
-                dictionary = new String(fileBuffer);
-
-            } catch (IOException e) {
-            }
-
-        }
 }
