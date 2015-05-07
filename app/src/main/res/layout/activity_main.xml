@@ -55,6 +55,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/sliderText"
         android:layout_below="@+id/lBar"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="30dp" />
 
 </RelativeLayout>

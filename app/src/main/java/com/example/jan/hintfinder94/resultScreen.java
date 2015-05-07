@@ -2,11 +2,9 @@ package com.example.jan.hintfinder94;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -16,9 +14,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by jan on 6.5.2015.
- */
+
 public class resultScreen extends Activity {
         String sLetter;
         String letters;
