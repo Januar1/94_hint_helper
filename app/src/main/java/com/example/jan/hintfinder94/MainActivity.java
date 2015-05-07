@@ -59,11 +59,13 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onProgressChanged(SeekBar lenBar, int progresValue, boolean fromUser) {
                 progress = progresValue;
+                textView.setText("Word length: " + progress + "/" + lenBar.getMax());
                 //Toast.makeText(getApplicationContext(), "Spreminjam dolzino besede", Toast.LENGTH_SHORT).show();
             }
 
             @Override
             public void onStartTrackingTouch(SeekBar lenBar) {
+                textView.setText("Word length: " + progress + "/" + lenBar.getMax());
                 //Toast.makeText(getApplicationContext(), "Started tracking seekbar", Toast.LENGTH_SHORT).show();
             }
 
