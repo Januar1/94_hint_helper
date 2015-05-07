@@ -12,6 +12,8 @@
         android:id="@+id/startingLetter"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
+        android:nextFocusDown="@+id/letters"
+        android:inputType="text"
         android:singleLine="true"
         android:lines="1"
         android:maxLines="1"
@@ -24,13 +26,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/letters"
         android:hint="Letters availible"
-        android:layout_above="@+id/lBar"
         android:lines="1"
         android:maxLines="1"
         android:singleLine="true"
         android:maxLength="19"
+        android:layout_below="@+id/startingLetter"
         android:layout_alignParentStart="true"
-        android:layout_marginBottom="44dp" />
+        android:layout_marginTop="42dp" />
 
     <SeekBar
         android:layout_width="wrap_content"

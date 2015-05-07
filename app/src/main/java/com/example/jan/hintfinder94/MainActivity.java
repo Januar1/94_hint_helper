@@ -4,6 +4,7 @@ import android.content.ActivityNotFoundException;
 import android.net.Uri;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -49,6 +50,16 @@ public class MainActivity extends ActionBarActivity {
                 Toast msg = Toast.makeText(getBaseContext(), "Enter the starting letter",
                         Toast.LENGTH_LONG);
                 msg.show();
+            }
+        });
+
+        sLetter.setOnKeyListener(new View.OnKeyListener() {
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                if(keyCode == 66){
+                    letters.requestFocus();
+                }
+                return false;
             }
         });
 
